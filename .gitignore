@@ -1,0 +1,22 @@
+# --- Frontend (React / Vite) ---
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.vite/
+
+# --- Backend (Python / FastAPI) ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+*.log
+
+# --- Environment & Local Configs ---
+.env
+.env.local
+
+# --- OS Specific Files ---
+.DS_Store
+Thumbs.db
