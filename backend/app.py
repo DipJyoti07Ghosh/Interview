@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
 import uvicorn
+import os
 
 from utils.resume_parser import extract_text_from_pdf, extract_skills
 from models.question_loader import get_questions_for_candidate
@@ -60,4 +61,5 @@ async def evaluate_candidate_answer(submission: AnswerSubmission):
         raise HTTPException(status_code=500, detail=f"Evaluation Error: {str(e)}")
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app:app", host="0.0.0.0", port=port)
