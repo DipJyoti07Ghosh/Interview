@@ -68,7 +68,6 @@ def get_questions_for_candidate(skills_list, limit=5):
             if q_dict not in all_questions:
                 all_questions.append(q_dict)
         
-        # ডাটাসেট থেকে র্যান্ডমলি মিশিয়ে দেওয়া
         random.shuffle(all_questions)
         for q in all_questions:
             if q not in matched_questions:
