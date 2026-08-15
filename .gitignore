@@ -1,22 +1,47 @@
-# --- Frontend (React / Vite) ---
-/frontend/node_modules/
-/frontend/dist/
-/frontend/.vite/
-
-# --- Backend (Python / FastAPI) ---
+# === Python / FastAPI (Backend) ===
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+*.so
 .venv/
 env/
 venv/
-*.log
-
-# --- Environment & Local Configs ---
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFOLD
+.pytest_cache/
+.coverage
+htmlcov/
 .env
-.env.local
 
-# --- OS Specific Files ---
+# === Node.js / Vite / React (Frontend) ===
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+
+# === IDEs & Editors ===
+.vscode/
+.idea/
+*.swp
+*.swo
 .DS_Store
+
+# === OS Generated Files ===
 Thumbs.db
+ehthumbs.db
