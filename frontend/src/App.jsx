@@ -12,6 +12,7 @@ function App() {
   const [evaluating, setEvaluating] = useState(false);
   const [evaluationResult, setEvaluationResult] = useState(null);
   const [isListening, setIsListening] = useState(false);
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://127.0.0.1:8000";
 
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
@@ -32,7 +33,7 @@ function App() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/upload-resume",
+        `${backendUrl}/api/upload-resume`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -85,7 +86,7 @@ function App() {
     setEvaluating(true);
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/evaluate", {
+      const response = await axios.post(`${backendUrl}/api/evaluate`, {
         candidate_answer: answer,
         ideal_answer: currentQ.answer,
       });
