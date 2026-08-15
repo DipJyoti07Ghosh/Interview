@@ -1,12 +1,9 @@
-# === Python / FastAPI (Backend) ===
+# === Python / Backend ===
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.venv/
-env/
-venv/
-ENV/
+.Python
 build/
 develop-eggs/
 dist/
@@ -23,25 +20,51 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFOLD
-.pytest_cache/
-.coverage
-htmlcov/
-.env
+MANIFEST
 
-# === Node.js / Vite / React (Frontend) ===
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Machine Learning Models (Prevent pushing heavy files >100MB to GitHub)
+backend/models/*.h5
+backend/models/*.pkl
+backend/models/*.bin
+backend/models/*.pt
+backend/models/*.weights
+
+# === Node.js / Frontend ===
 frontend/node_modules/
 frontend/dist/
 frontend/dist-ssr/
-frontend/*.local
+frontend/local/
 
-# === IDEs & Editors ===
+# Editor directories and files
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 *.swp
-*.swo
-.DS_Store
 
-# === OS Generated Files ===
-Thumbs.db
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 ehthumbs.db
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

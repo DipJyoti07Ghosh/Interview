@@ -32,7 +32,7 @@ function App() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "/api/upload-resume",
+        "http://127.0.0.1:8000/api/upload-resume",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -85,7 +85,7 @@ function App() {
     setEvaluating(true);
 
     try {
-      const response = await axios.post("/api/evaluate", {
+      const response = await axios.post("http://127.0.0.1:8000/api/evaluate", {
         candidate_answer: answer,
         ideal_answer: currentQ.answer,
       });
