@@ -7,7 +7,6 @@ def get_evaluator_model():
     global _model
     if _model is None:
         try:
-            # হালকা এবং দ্রুতগতির মডেল
             _model = SentenceTransformer('all-MiniLM-L6-v2')
         except Exception as e:
             print(f"Error loading SentenceTransformer model: {str(e)}")
@@ -15,9 +14,6 @@ def get_evaluator_model():
     return _model
 
 def evaluate_answer(candidate_answer, ideal_answer):
-    """
-    ক্যান্ডিডেটের দেওয়া উত্তর এবং আদর্শ উত্তরের মধ্যে সিমিলারিটি ক্যালকুলেট করে।
-    """
     if not candidate_answer or not candidate_answer.strip():
         return {
             "score": 0.0,
@@ -27,11 +23,9 @@ def evaluate_answer(candidate_answer, ideal_answer):
     try:
         model = get_evaluator_model()
         
-        # এমবেডিং তৈরি করা
         emb1 = model.encode(candidate_answer, convert_to_tensor=True)
         emb2 = model.encode(ideal_answer, convert_to_tensor=True)
         
-        # কসিমাইন সিমিলারিটি হিসাব করা
         similarity = util.cos_sim(emb1, emb2).item()
         
         score_percentage = max(0.0, min(100.0, similarity * 100))
